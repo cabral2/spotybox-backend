@@ -4,7 +4,9 @@
   "description": "Backend",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/server.js",
+    "start:dev": "nodemon ./bin/server.js"
+
   },
   "repository": {
     "type": "git",
@@ -18,8 +20,13 @@
   "homepage": "https://github.com/cabral2/spotybox-backend#readme",
   "dependencies": {
     "body-parser": "^1.20.0",
+    "debug": "^4.3.4",
     "express": "^4.18.1",
+    "http": "^0.0.1-security",
     "knex": "^2.1.0",
     "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.18"
   }
 }
