@@ -7,7 +7,6 @@ exports.get = (req, res, next) => {
 
 exports.post = (req, res, next) => {
   res.status(201).send(req.body);
-  console.log(req.body);
 };
 
 exports.put = (req, res, next) => {
