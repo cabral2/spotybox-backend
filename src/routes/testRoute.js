@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const controller = require('../controllers/testController');
-const authService = require('../services/auth-service');
+const authService = require('../services/authService');
 
 router.get('/', controller.get);
 router.post('/', authService.authorize, controller.post);

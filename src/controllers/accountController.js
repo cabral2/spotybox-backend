@@ -1,5 +1,5 @@
-const userRepository = require('../repositories/user-repository');
-const authService = require('../services/auth-service');
+const userRepository = require('../repositories/userRepository');
+const authService = require('../services/authService');
 
 exports.authenticate = async (req, res, next) => {
   try {
