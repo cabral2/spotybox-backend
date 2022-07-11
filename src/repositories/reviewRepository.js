@@ -10,6 +10,7 @@ exports.getReviewsByAlbum = async (albumId) => {
 
 exports.getReviewsByUser = async (userId) => {
   return knex('reviews')
+    .join('users', 'users.id', 'reviews.user_id')
     .where({
       user_id: userId,
     })
