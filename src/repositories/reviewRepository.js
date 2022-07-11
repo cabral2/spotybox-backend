@@ -1,17 +1,17 @@
 const knex = require('../../config/database');
 
-exports.getReviewsByAlbum = async (data) => {
+exports.getReviewsByAlbum = async (albumId) => {
   return knex('reviews')
     .where({
-      album_id: data.albumId,
+      album_id: albumId,
     })
     .select();
 };
 
-exports.getReviewsByUser = async (data) => {
+exports.getReviewsByUser = async (userId) => {
   return knex('reviews')
     .where({
-      user_id: data.userId,
+      user_id: userId,
     })
     .select();
 };

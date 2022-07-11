@@ -22,3 +22,31 @@ exports.post = async (req, res, next) => {
     });
   }
 };
+
+exports.getByAlbumId = async (req, res, next) => {
+  if (!req.params.albumId) return;
+
+  try {
+    const albuns = await repository.getReviewsByAlbum(req.params.albumId);
+    res.status(200).send(albuns);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      message: 'Falha ao buscar reviews',
+    });
+  }
+};
+
+exports.getByUserId = async (req, res, next) => {
+  if (!req.params.userId) return;
+
+  try {
+    const albuns = await repository.getReviewsByUser(req.params.userId);
+    res.status(200).send(albuns);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      message: 'Falha ao buscar reviews',
+    });
+  }
+};
