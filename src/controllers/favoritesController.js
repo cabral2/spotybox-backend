@@ -27,7 +27,7 @@ exports.post = async (req, res, next) => {
     }
 };
 
-exports.delete = (req, res, next) => {
+exports.delete = async (req, res, next) => {
     if (!req.body.userId || !req.body.albumId) {
         res.status(404).send({
             message: 'Solicitação inválida',
