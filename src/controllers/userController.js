@@ -1,5 +1,10 @@
 const repository = require('../repositories/userRepository');
 
+exports.getByEmail = async (req, res, next) => {
+  const users = await repository.getUserByEmail(req.query.email);
+  res.status(200).send(users);
+}
+
 exports.post = async (req, res, next) => {
   const user = {};
 
