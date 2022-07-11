@@ -2,6 +2,7 @@ const knex = require('../../config/database');
 
 exports.getReviewsByAlbum = async (albumId) => {
   return knex('reviews')
+    .join('users', 'users.id', 'reviews.user_id')
     .where({
       album_id: albumId,
     })
