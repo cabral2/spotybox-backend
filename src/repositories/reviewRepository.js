@@ -6,7 +6,7 @@ exports.getReviewsByAlbum = async (albumId) => {
     .where({
       album_id: albumId,
     })
-    .orderBy('id', 'desc')
+    .orderBy('reviews.id', 'desc')
     .select();
 };
 
@@ -16,7 +16,7 @@ exports.getReviewsByUser = async (userId) => {
     .where({
       user_id: userId,
     })
-    .orderBy('id', 'desc')
+    .orderBy('reviews.id', 'desc')
     .select();
 };
 
