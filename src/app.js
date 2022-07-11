@@ -18,7 +18,7 @@ const test = require('./routes/testRoute');
 const account = require('./routes/accountRoute');
 const user = require('./routes/userRoute');
 const review = require('./routes/reviewRoute');
-const favorites = require('./routes/favorites');
+const favorites = require('./routes/favoritesRoute');
 
 app.use('/healthcheck', healthcheck);
 app.use('/test', test);
