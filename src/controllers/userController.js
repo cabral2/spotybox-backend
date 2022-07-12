@@ -71,3 +71,8 @@ exports.getSearchUsers = async (req, res, next) => {
   const users = await repository.searchUser(req.query.user);
   res.status(200).send(users);
 };
+
+exports.getAllUsers = async (req, res, next) => {
+  const users = await repository.getAllUsers();
+  res.status(200).send(users);
+};

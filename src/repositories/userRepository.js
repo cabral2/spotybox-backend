@@ -43,3 +43,8 @@ exports.searchUser = async (data) => {
     .select('users.first_name', 'users.last_name', 'users.id', 'users.email');
   return users;
 };
+
+exports.getAllUsers = async () => {
+  const users = await knex('users').select('first_name', 'last_name', 'localization', 'bio', 'photo-url');
+  return users;
+};
