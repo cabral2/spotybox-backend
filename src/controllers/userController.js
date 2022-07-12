@@ -1,9 +1,10 @@
 const repository = require('../repositories/userRepository');
+const path = require('path');
 
 exports.getByEmail = async (req, res, next) => {
   const users = await repository.getUserByEmail(req.query.email);
   res.status(200).send(users);
-}
+};
 
 exports.post = async (req, res, next) => {
   const user = {};
@@ -49,3 +50,17 @@ exports.put = (req, res, next) => {
       });
     });
 }
+exports.postImage = async (req, res) => {
+  const userId = req.body.userId;
+
+  const imgsrc = process.env.BASE_URL + '/Images/' + req.file.filename;
+
+  try {
+    await repository.setProfilePhoto(imgsrc, userId);
+    res.status(200).send();
+  } catch (error) {
+    res.status(500).send({
+      message: 'Falha ao criar usuário',
+    });
+  }
+};

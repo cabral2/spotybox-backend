@@ -32,3 +32,6 @@ exports.updateUser = async (user) => {
     })
     .update(user);
 }
+exports.setProfilePhoto = async (url, userId) => {
+  return knex('users').where({ id: userId }).update({ 'photo-url': url });
+};
