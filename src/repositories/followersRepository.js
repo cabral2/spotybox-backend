@@ -9,11 +9,33 @@ exports.deleteFollow = async (users) => {
 };
 
 exports.getFollowing = async (user) => {
-  return knex('friends').where({ user_id: user.user_id }).select();
+  return knex('friends')
+    .innerJoin('users', 'friends.friend_id', 'users.id')
+    .where({ user_id: user.user_id })
+    .select(
+      'friends.user_id',
+      'friends.friend_id',
+      'friends.isBlock',
+      'users.first_name',
+      'users.last_name',
+      'users.bio',
+      'users.localization'
+    );
 };
 
 exports.getFollowers = async (user) => {
-  return knex('friends').where({ friend_id: user.user_id }).select();
+  return knex('friends')
+    .innerJoin('users', 'friends.user_id', 'users.id')
+    .where({ friend_id: user.user_id })
+    .select(
+      'friends.user_id',
+      'friends.friend_id',
+      'friends.isBlock',
+      'users.first_name',
+      'users.last_name',
+      'users.bio',
+      'users.localization'
+    );
 };
 
 exports.updateIsBlock = async (users) => {
