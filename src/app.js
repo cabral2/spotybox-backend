@@ -21,6 +21,7 @@ const account = require('./routes/accountRoute');
 const user = require('./routes/userRoute');
 const review = require('./routes/reviewRoute');
 const favorites = require('./routes/favoritesRoute');
+const followers = require('./routes/followersRoute');
 
 app.use('/healthcheck', healthcheck);
 app.use('/test', test);
@@ -28,5 +29,6 @@ app.use('/account', account);
 app.use('/user', user);
 app.use('/review', review);
 app.use('/favorites', favorites);
+app.use('/friends', followers);
 
 module.exports = app;
