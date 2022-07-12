@@ -18,6 +18,7 @@ const upload = multer({ storage: storage });
 
 router.get('/email', controller.getByEmail);
 router.get('/search', controller.getSearchUsers);
+router.get('/', controller.getAllUsers);
 router.post('/create', controller.post);
 router.post('/photo', upload.single('file'), controller.postImage);
 router.put('/', controller.put);
