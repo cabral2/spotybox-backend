@@ -3,7 +3,7 @@ const knex = require('../../config/database');
 exports.getFavoritesByUser = async (data) => {
   return knex('favorites')
     .where({
-      user_id: data.userId,
+      user_id: data,
     })
     .select();
 };

@@ -24,3 +24,7 @@ exports.getUserByEmail = async (email) => {
 
   return users;
 };
+
+exports.setProfilePhoto = async (url, userId) => {
+  return knex('users').where({ id: userId }).update({ 'photo-url': url });
+};
