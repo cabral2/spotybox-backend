@@ -24,3 +24,11 @@ exports.getUserByEmail = async (email) => {
 
   return users;
 };
+
+exports.updateUser = async (user) => {
+  await knex('users')
+    .where({
+      id: user.id,
+    })
+    .update(user);
+}

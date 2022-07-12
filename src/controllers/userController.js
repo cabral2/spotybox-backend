@@ -35,3 +35,17 @@ exports.post = async (req, res, next) => {
     });
   }
 };
+
+exports.put = (req, res, next) => {
+  const user = req.body.user;
+
+  repository.updateUser(user)
+    .then(() => {
+      res.status(200).send({ ...user, password: '' });
+    }
+    ).catch(error => {
+      res.status(500).send({
+        message: 'Falha ao atualizar usuário',
+      });
+    });
+}
