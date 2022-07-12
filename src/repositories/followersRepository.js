@@ -19,7 +19,8 @@ exports.getFollowing = async (user) => {
       'users.first_name',
       'users.last_name',
       'users.bio',
-      'users.localization'
+      'users.localization',
+      'users.photo-url'
     );
 };
 
@@ -34,7 +35,8 @@ exports.getFollowers = async (user) => {
       'users.first_name',
       'users.last_name',
       'users.bio',
-      'users.localization'
+      'users.localization',
+      'users.photo-url'
     );
 };
 
