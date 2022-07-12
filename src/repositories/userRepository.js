@@ -31,7 +31,15 @@ exports.updateUser = async (user) => {
       id: user.id,
     })
     .update(user);
-}
+};
 exports.setProfilePhoto = async (url, userId) => {
   return knex('users').where({ id: userId }).update({ 'photo-url': url });
+};
+
+exports.searchUser = async (data) => {
+  const users = await knex('users')
+    .whereILike('first_name', `%${data}%`)
+    .orWhereILike('last_name', `%${data}%`)
+    .select('users.first_name', 'users.last_name', 'users.id', 'users.email');
+  return users;
 };
